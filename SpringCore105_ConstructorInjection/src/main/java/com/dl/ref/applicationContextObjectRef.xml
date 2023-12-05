@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	xmlns:p="http://www.springframework.org/schema/p"
+	 xmlns:c="http://www.springframework.org/schema/c">
+
+	<!--  <bean name="models" class="com.dl.ref.Models" c:carName="Honda City" c:cost="900000" c:generation="G6" c:type="Manual"/>
+	
+	<bean name="id1" class="com.dl.ref.Honda" p:models-ref="models"></bean>-->
+	
+	<bean name="id1" class="com.dl.ref.Honda"/>
+	
+	<bean name="id2" class="com.dl.ref.Models">
+	<constructor-arg name="carName" value="Honda Civic" />
+	<constructor-arg name="cost" value="900000" />
+	<constructor-arg name="generation" value="G7" />
+	<constructor-arg name="type" value="Manual" />
+	</bean>
+	<bean name="id3" class="com.dl.ref.Honda" parent="id1">
+	<constructor-arg ref="id2"/>
+	</bean>
+	
+	
+	
+	
+</beans>
